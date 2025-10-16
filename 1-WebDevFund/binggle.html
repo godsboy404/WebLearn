@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Binggle</title>
+		<meta name="description" content="Google mimic with TailWind" />
+		<!-- Tailwind Play CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			/* Small visual polish for the logo letters */
+			.logo-letter { font-weight: 700; font-size: 96px; line-height: 1; }
+			@media (max-width: 640px) { .logo-letter { font-size: 56px; } }
+		</style>
+	</head>
+		<body class="min-h-screen flex flex-col bg-gray-50 text-gray-800" style="background-image: url('https://bing.biturl.top/?resolution=UHD&format=image&index=0&mkt=zh-CN'); background-size: cover; background-position: center; background-attachment: fixed;">
+		<!-- Header -->
+		<header class="w-full">
+			<nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-end gap-4 text-sm">
+				<a href="#" class="text-gray-700 hover:underline">Tor</a>
+				<a href="#" class="text-gray-700 hover:underline">NSA</a>
+				<button aria-label="Apps" class="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400">
+					<!-- simple grid icon -->
+					<svg class="w-6 h-6 text-gray-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h4v4H3V3zm7 0h4v4h-4V3zM3 10h4v4H3v-4zm7 7h4v4h-4v-4zM10 3h4v4h-4V3zM17 3h4v4h-4V3zM17 10h4v4h-4v-4zM10 10h4v4h-4v-4zM3 17h4v4H3v-4zM17 17h4v4h-4v-4z"/></svg>
+				</button>
+				<a href="#" class="bg-blue-600 text-white px-4 py-1.5 rounded-md text-sm hover:bg-blue-700">On Board</a>
+			</nav>
+		</header>
+
+			<!-- Main -->
+			<main class="flex-grow flex items-center justify-center">
+				<!-- translucent panel for readability -->
+				<div class="w-full max-w-2xl px-6 text-center bg-white/70 backdrop-blur-sm rounded-lg py-10 shadow-md">
+				<h1 class="sr-only">Binggle — search the web</h1>
+
+				<!-- Logo (text-based, colored letters) -->
+				<div class="mb-8 select-none">
+					<span class="logo-letter" aria-hidden="true">
+						<span class="text-blue-600">B</span>
+						<span class="text-red-500">i</span>
+						<span class="text-yellow-400">n</span>
+						<span class="text-blue-600">g</span>
+						<span class="text-green-500">g</span>
+						<span class="text-red-500">l</span>
+						<span class="text-yellow-400">e</span>
+					</span>
+				</div>
+
+				<!-- Search form -->
+				<form action="https://www.bing.com/search" method="get" role="search" class="mb-6">
+					<label for="q" class="sr-only">Search</label>
+					<div class="flex items-center border border-gray-200 rounded-full shadow-sm px-4 py-3 hover:shadow focus-within:shadow-md focus-within:ring-2 focus-within:ring-blue-300">
+						<svg class="w-6 h-6 text-gray-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"></path></svg>
+						<input id="q" name="q" type="search" class="flex-grow focus:outline-none text-lg" placeholder="Search Binggle or type a URL" aria-label="Search Binggle" />
+						<button type="button" aria-label="Voice search" class="ml-3 text-blue-600 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-full p-2">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zM5 11a7 7 0 0 0 14 0h-2a5 5 0 0 1-10 0H5zM12 19v3"/></svg>
+						</button>
+					</div>
+
+					<div class="mt-6 flex items-center justify-center gap-3">
+						<button type="submit" class="bg-gray-100 px-4 py-2 rounded-md text-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-blue-300">坐和放宽</button>
+						<button type="button" class="bg-gray-100 px-4 py-2 rounded-md text-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-blue-300">我今天看起来很聪明！</button>
+					</div>
+				</form>
+
+				<!-- Language / tips area -->
+				<p class="text-xs text-gray-500">知识归根结底由经验而来。 ——洛克</p>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-gray-50 border-t border-gray-200">
+			<div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-700">
+				<div class="flex gap-4 mb-3 sm:mb-0">
+					<a href="#" class="hover:underline">Your data</a>
+					<a href="#" class="hover:underline">means nothing</a>
+					<a href="#" class="hover:underline">to the</a>
+					<a href="#" class="hover:underline">great capital</a>
+				</div>
+				<div class="flex gap-4 items-center">
+					<span class="text-gray-600">不要看见</span>
+					<a href="#" class="hover:underline">莫要声张</a>
+					<a href="#" class="hover:underline">唯有弗洛</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- "/" 键聚焦输入框 -->
+		<script>
+			(function(){
+				const input = document.getElementById('q');
+				window.addEventListener('keydown', function(e){
+					if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){
+						e.preventDefault(); input.focus();
+					}
+				});
+			})();
+		</script>
+	</body>
+</html>
