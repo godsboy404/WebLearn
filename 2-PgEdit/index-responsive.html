@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云南大学软件学院网站</title>
+    <meta name="keywords" content="云南大学软件学院" />
+    <meta http-equiv="expires" content="-1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        /* 自定义样式 */
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* 头部样式 */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-banner {
+            height: 120px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff20" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%23ffffff10" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%23ffffff05" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>') no-repeat center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .header-banner h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* 导航样式 */
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.25rem 0;
+            margin: 0;
+        }
+        
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            padding: 0.4rem 0.8rem !important;
+            font-size: 0.95rem;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: var(--bg-light);
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            padding: 0.25rem 0;
+            margin-top: 0.25rem;
+        }
+        
+        .dropdown-item {
+            padding: 0.4rem 1.2rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        /* 轮播图样式 */
+        .carousel {
+            margin: 2rem 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-item {
+            height: 400px;
+            background: var(--bg-light);
+        }
+        
+        .carousel-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            background: rgba(0,0,0,0.6);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .carousel-caption h5 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        /* 内容区域样式 */
+        .content-section {
+            padding: 3rem 0;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: auto;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 1rem 1rem 0 0 !important;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+        }
+        
+        .list-group-item {
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .list-group-item:hover {
+            background-color: var(--bg-light);
+            transform: translateX(5px);
+        }
+        
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+        
+        /* 快速链接样式 */
+        .quick-links {
+            margin: 3rem 0;
+        }
+        
+        .quick-link-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 150px;
+        }
+        
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .quick-link-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .quick-link-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .quick-link-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 党史学习特殊样式 */
+        .party-history-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .party-history-item:hover {
+            background-color: var(--bg-light);
+        }
+        
+        .party-history-item img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        /* 修复导航栏和页脚问题 */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        /* 确保导航栏完全贴合 */
+        .navbar {
+            left: 0;
+            right: 0;
+        }
+        
+        /* 清除可能的浮动 */
+        .clear {
+            clear: both;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .header-banner h1 {
+                font-size: 1.8rem;
+            }
+            
+            .carousel-item {
+                height: 250px;
+            }
+            
+            .carousel-caption {
+                padding: 1rem;
+                max-width: 95%;
+            }
+            
+            .quick-link-card {
+                height: 120px;
+            }
+            
+            .news-date {
+                display: block;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-banner {
+                height: 80px;
+            }
+            
+            .header-banner h1 {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-item {
+                height: 200px;
+            }
+            
+            .carousel-caption h5 {
+                font-size: 1rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+            
+            .quick-link-card {
+                height: 100px;
+            }
+            
+            .quick-link-overlay {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-banner">
+                <h1>云南大学软件学院 & 人工智能学院</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-lg-none" href="#">云大软院</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.htm">首页</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button" data-bs-toggle="dropdown">
+                            新闻公告
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="xwgg/xyxw.htm">学院新闻</a></li>
+                            <li><a class="dropdown-item" href="xwgg/tzgg.htm">通知公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="overviewDropdown" role="button" data-bs-toggle="dropdown">
+                            学院概况
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="xygk/xyjj.htm">学院简介</a></li>
+                            <li><a class="dropdown-item" href="xygk/xyld.htm">学院领导</a></li>
+                            <li><a class="dropdown-item" href="xygk/jgsz.htm">机构设置</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown">
+                            师资队伍
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="szdw/zzjs.htm">在职教师</a></li>
+                            <li><a class="dropdown-item" href="szdw/rszp.htm">人事招聘</a></li>
+                            <li><a class="dropdown-item" href="szdw/sdsf.htm">师德师风</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="educationDropdown" role="button" data-bs-toggle="dropdown">
+                            人才培养
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="rcpy/bksjy.htm">本科生教育</a></li>
+                            <li><a class="dropdown-item" href="rcpy/yjsjy.htm">研究生教育</a></li>
+                            <li><a class="dropdown-item" href="rcpy/jxcgsb.htm">教学成果申报</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown">
+                            科学研究
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="kxyj/kypt.htm">科研平台</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cooperationDropdown" role="button" data-bs-toggle="dropdown">
+                            合作交流
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="hzjl/jlhd.htm">交流活动</a></li>
+                            <li><a class="dropdown-item" href="hzjl/xshy.htm">学术会议</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="partyDropdown" role="button" data-bs-toggle="dropdown">
+                            党群工作
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dqgz/gzzd.htm">规章制度</a></li>
+                            <li><a class="dropdown-item" href="dqgz/djhd.htm">党建活动</a></li>
+                            <li><a class="dropdown-item" href="dqgz/dsxx.htm">党史学习</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="studentDropdown" role="button" data-bs-toggle="dropdown">
+                            学生工作
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="xsgz1/xgdt.htm">学工动态</a></li>
+                            <li><a class="dropdown-item" href="xsgz1/xgtz.htm">学工通知</a></li>
+                            <li><a class="dropdown-item" href="xsgz1/jygz.htm">就业工作</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="englishDropdown" role="button" data-bs-toggle="dropdown">
+                            International
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.htm">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 轮播图 -->
+    <section class="container">
+        <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://random-api.czl.net/pic/fj" class="d-block w-100" alt="学院新闻" onerror="this.src='https://picsum.photos/seed/ynu1/1200/400.jpg'">
+                    <div class="carousel-caption">
+                        <h5>我院获批建设云南省专业特色学院（特色软件学院）</h5>
+                        <p>我院获批建设云南省专业特色学院（特色软件学院）...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://random-api.czl.net/pic/fj" class="d-block w-100" alt="学术会议" onerror="this.src='https://picsum.photos/seed/ynu2/1200/400.jpg'">
+                    <div class="carousel-caption">
+                        <h5>滇峰论道·智创新局｜软件学院 人工智能学院承办中国计算机学会人工智能会议（CCFAI 2025）</h5>
+                        <p>滇峰论道·智创新局｜软件学院 人工智能学院承办中国计算机学会人工智能会议..</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://random-api.czl.net/pic/fj" class="d-block w-100" alt="国际会议" onerror="this.src='https://picsum.photos/seed/ynu3/1200/400.jpg'">
+                    <div class="carousel-caption">
+                        <h5>智能互联·数造未来｜第23届电气电子工程师学会（IEEE）工业信息学国际会议在昆明召开</h5>
+                        <p>智能互联·数造未来｜第23届电气电子工程师学会（IEEE）工业信息学国际会议在昆明召开...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://random-api.czl.net/pic/fj" class="d-block w-100" alt="教学比赛" onerror="this.src='https://picsum.photos/seed/ynu4/1200/400.jpg'">
+                    <div class="carousel-caption">
+                        <h5>软件学院 人工智能学院成功举办云南大学第十九届教师课堂教学比赛院级初赛</h5>
+                        <p>软件学院 人工智能学院成功举办云南大学第十九届教师课堂教学比赛...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://random-api.czl.net/pic/fj" class="d-block w-100" alt="研究成果" onerror="this.src='https://picsum.photos/seed/ynu5/1200/400.jpg'">
+                    <div class="carousel-caption">
+                        <h5>云南大学软件学院 人工智能学院在人工智能领域取得突破性研究成果</h5>
+                        <p>云南大学软件学院 人工智能学院在人工智能领域取得突破性研究成果..</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 主要内容区域 -->
+    <section class="content-section">
+        <div class="container">
+            <!-- 第一行：学院新闻和信息公告 -->
+            <div class="row g-4 mb-4">
+                <!-- 学院新闻 -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-newspaper me-2"></i>学院新闻</span>
+                            <a href="http://www.sei.ynu.edu.cn/xwgg/xyxw.htm" class="btn btn-sm btn-light">更多 >></a>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="info/1056/2493.htm" class="text-decoration-none text-dark">软件学院 人工智能学院相关研究成果破局城市治理难题</a>
+                                    <span class="news-date float-end">2025-10-14</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2478.htm" class="text-decoration-none text-dark">软件学院 人工智能学院成功举办云南大学第十九届教师课堂教学比赛院级初赛</a>
+                                    <span class="news-date float-end">2025-09-25</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2477.htm" class="text-decoration-none text-dark">数字媒体技术系成功承办第20届中国好创意暨全国数字艺术设计大赛宣讲会</a>
+                                    <span class="news-date float-end">2025-09-23</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2473.htm" class="text-decoration-none text-dark">云南大学软件学院 人工智能学院在人工智能领域取得突破性研究成果</a>
+                                    <span class="news-date float-end">2025-09-21</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2472.htm" class="text-decoration-none text-dark">我院获批建设云南省专业特色学院（特色软件学院）</a>
+                                    <span class="news-date float-end">2025-09-19</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2469.htm" class="text-decoration-none text-dark">云南大学软件学院 人工智能学院在中国机器人及人工智能大赛中创历史佳绩</a>
+                                    <span class="news-date float-end">2025-09-11</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2467.htm" class="text-decoration-none text-dark">云南大学软件工程专业成功获批2025年云南省高校拔尖学生培养项目，助力数字经济人才培育</a>
+                                    <span class="news-date float-end">2025-09-04</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1056/2466.htm" class="text-decoration-none text-dark">数字媒体技术专业《游戏策划与开发》微专业项目获批建设</a>
+                                    <span class="news-date float-end">2025-09-04</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 信息公告 -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-megaphone me-2"></i>信息公告</span>
+                            <a href="xwgg/tzgg.htm" class="btn btn-sm btn-light">更多 >></a>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="info/1057/2491.htm" class="text-decoration-none text-dark">云南大学软件工程拔尖班2025年拟录取学生名单公示</a>
+                                    <span class="news-date float-end">10/13</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/2474.htm" class="text-decoration-none text-dark">云南大学软件学院（人工智能学院）2026年接收优秀应届本科毕业生免试攻读研究生实施细则</a>
+                                    <span class="news-date float-end">09/22</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/2464.htm" class="text-decoration-none text-dark">软件学院 人工智能学院2025年秋季学期毕业研究生学位授予工作安排的通知</a>
+                                    <span class="news-date float-end">09/02</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/2461.htm" class="text-decoration-none text-dark">欢迎全国优秀应届本科毕业生申请推荐免试攻读软件学院 人工智能学院硕士学位研究生</a>
+                                    <span class="news-date float-end">08/25</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/1561.htm" class="text-decoration-none text-dark">云南大学国家示范性软件学院 人工智能学院概况</a>
+                                    <span class="news-date float-end">06/26</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/2413.htm" class="text-decoration-none text-dark">云南大学软件学院关于2025年拟录取硕士研究生后续相关工作的通知</a>
+                                    <span class="news-date float-end">05/16</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/2400.htm" class="text-decoration-none text-dark">云南大学软件学院2025年硕士研究生招生调剂复试工作实施办法</a>
+                                    <span class="news-date float-end">04/07</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1057/2392.htm" class="text-decoration-none text-dark">云南大学软件学院2025年硕士研究生招生复试录取工作实施细则</a>
+                                    <span class="news-date float-end">03/14</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二行：学术动态和党史学习 -->
+            <div class="row g-4">
+                <!-- 学术动态 -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-mortarboard me-2"></i>学术动态</span>
+                            <a href="hzjl/jlhd.htm" class="btn btn-sm btn-light">更多 >></a>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="info/1044/2453.htm" class="text-decoration-none text-dark">滇峰论道·智创新局｜软件学院 人工智能学院承办中国计算机学会人工智能会议</a>
+                                    <div class="news-date">2025年08月06日</div>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1041/2449.htm" class="text-decoration-none text-dark">焦李成院士到云大软件学院人工智能学院指导并作报告</a>
+                                    <div class="news-date">2025年07月20日</div>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1044/2448.htm" class="text-decoration-none text-dark">智能互联·数造未来｜第23届电气电子工程师学会（IEEE）工业信息学国际会议</a>
+                                    <div class="news-date">2025年07月16日</div>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1041/2446.htm" class="text-decoration-none text-dark">杨双华教授到院作工业互联网与人工智能安全专题报告</a>
+                                    <div class="news-date">2025年07月18日</div>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="info/1041/2450.htm" class="text-decoration-none text-dark">软件学院 人工智能学院召开人工智能专业建设任务研讨会</a>
+                                    <div class="news-date">2025年07月08日</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 党史学习 -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-book me-2"></i>党史学习</span>
+                            <a href="dqgz/dsxx.htm" class="btn btn-sm btn-light">更多 >></a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="party-history-item">
+                                <img src="https://random-api.czl.net/pic/fj" alt="党史学习" onerror="this.src='https://picsum.photos/seed/party1/80/60.jpg'">
+                                <div>
+                                    <a href="http://www.sei.ynu.edu.cn/info/1056/1815.htm" class="text-decoration-none text-dark">云南大学软件学院举行党史学习教育宣讲报告会</a>
+                                </div>
+                            </div>
+                            <div class="party-history-item">
+                                <img src="https://random-api.czl.net/pic/fj" alt="党史学习" onerror="this.src='https://picsum.photos/seed/party2/80/60.jpg'">
+                                <div>
+                                    <a href="http://www.sei.ynu.edu.cn/info/1056/1813.htm" class="text-decoration-none text-dark">云南大学软件学院召开党史学习教育动员会</a>
+                                </div>
+                            </div>
+                            <div class="party-history-item">
+                                <img src="https://random-api.czl.net/pic/fj" alt="党史学习" onerror="this.src='https://picsum.photos/seed/party3/80/60.jpg'">
+                                <div>
+                                    <a href="http://www.sei.ynu.edu.cn/info/1112/1842.htm" class="text-decoration-none text-dark">软件云南大学软件学院师生集中收看庆祝中国共产党成立100周年大会</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速链接 -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="学院简介" onerror="this.src='https://picsum.photos/seed/intro/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="http://www.sei.ynu.edu.cn/xygk/xyjj.htm" class="text-white text-decoration-none">学院简介</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="本科生教育" onerror="this.src='https://picsum.photos/seed/undergrad/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="rcpy/bksjy.htm" class="text-white text-decoration-none">本科生教育</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="师资队伍" onerror="this.src='https://picsum.photos/seed/faculty/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="szdw/zzjs.htm" class="text-white text-decoration-none">师资队伍</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="科研平台" onerror="this.src='https://picsum.photos/seed/research/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="http://www.sei.ynu.edu.cn/kxyj/kypt.htm" class="text-white text-decoration-none">科研平台</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="实验室" onerror="this.src='https://picsum.photos/seed/lab/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="http://www.selab.ynu.edu.cn" class="text-white text-decoration-none">实验室</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="研究" onerror="this.src='https://picsum.photos/seed/study/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="http://seilab.ynu.edu.cn" class="text-white text-decoration-none">研究</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="研究生教育" onerror="this.src='https://picsum.photos/seed/graduate/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="http://www.sei.ynu.edu.cn/rcpy/yjsjy.htm" class="text-white text-decoration-none">研究生教育</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quick-link-card">
+                        <img src="https://random-api.czl.net/pic/fj" alt="更多" onerror="this.src='https://picsum.photos/seed/more/240/150.jpg'">
+                        <div class="quick-link-overlay">
+                            <a href="rcpy/bksjy.htm" class="text-white text-decoration-none">更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-2">云南大学软件学院&人工智能学院 版权所有</p>
+            <p class="mb-2">地址：昆明市呈贡区大学城东外环南路云南大学呈贡校区软件学院楼  邮编：650504</p>
+            <p class="mb-0">Copyright@ 2002-2025 School of Software and AI</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 分析统计 -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.ynu.edu.cn/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>
