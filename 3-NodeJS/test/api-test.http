@@ -1,0 +1,105 @@
+### 用户 API 测试用例
+
+### 获取所有用户
+GET http://localhost:3000/users
+
+### 创建新用户
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "test_user",
+  "email": "test@example.com",
+  "password": "password123",
+  "age": 25,
+  "status": "active",
+  "role": "user"
+}
+
+### 根据ID获取用户
+GET http://localhost:3000/users/用户ID
+
+### 根据用户名获取用户
+GET http://localhost:3000/users/username/admin
+
+### 根据状态获取用户列表
+GET http://localhost:3000/users/status/active
+
+### 根据角色获取用户列表
+GET http://localhost:3000/users/role/user
+
+### 更新用户信息
+PATCH http://localhost:3000/users/用户ID
+Content-Type: application/json
+
+{
+  "age": 26,
+  "status": "inactive"
+}
+
+### 删除用户
+DELETE http://localhost:3000/users/用户ID
+
+### 产品 API 测试用例
+
+### 获取所有产品
+GET http://localhost:3000/products
+
+### 创建新产品
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "测试产品",
+  "description": "这是一个测试产品",
+  "price": 99.99,
+  "stock": 100,
+  "category": "other",
+  "imageUrl": "https://example.com/test-product.jpg",
+  "tags": ["测试", "产品"],
+  "status": "available",
+  "rating": 4.5,
+  "salesCount": 0
+}
+
+### 根据ID获取产品
+GET http://localhost:3000/products/产品ID
+
+### 根据名称搜索产品
+GET http://localhost:3000/products/search/iPhone
+
+### 根据分类获取产品列表
+GET http://localhost:3000/products/category/electronics
+
+### 根据状态获取产品列表
+GET http://localhost:3000/products/status/available
+
+### 根据价格范围获取产品列表
+GET http://localhost:3000/products/price-range?minPrice=100&maxPrice=1000
+
+### 获取低库存产品
+GET http://localhost:3000/products/low-stock/list
+
+### 获取热门产品
+GET http://localhost:3000/products/popular/list?limit=5
+
+### 更新产品信息
+PATCH http://localhost:3000/products/产品ID
+Content-Type: application/json
+
+{
+  "price": 89.99,
+  "stock": 80
+}
+
+### 增加产品库存
+PATCH http://localhost:3000/products/产品ID/increase-stock?quantity=20
+
+### 减少产品库存
+PATCH http://localhost:3000/products/产品ID/decrease-stock?quantity=5
+
+### 删除产品
+DELETE http://localhost:3000/products/产品ID
+
+### API 文档
+GET http://localhost:3000/api

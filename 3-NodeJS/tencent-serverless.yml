@@ -1,0 +1,37 @@
+component: scf # 组件名称
+name: nodejs-serverless-app # 实例名称
+
+inputs:
+  name: nodejs-serverless-app # 云函数名称
+  src: ./dist # 代码路径
+  runtime: Nodejs16.15 # 运行环境
+  region: ap-beijing # 部署区域
+  handler: main.handler # 函数入口
+  memorySize: 256 # 内存大小
+  timeout: 60 # 超时时间
+  environment:
+    variables:
+      NODE_ENV: production
+      MONGODB_URI: ${env.MONGODB_URI}
+  events:
+    - apigw: # API网关触发器
+        parameters:
+          serviceName: serverless
+          serviceDesc: Serverless API服务
+          environment: release
+          endpoints:
+            - path: /
+              method: ANY
+              function: main.handler
+            - path: /{proxy+}
+              method: ANY
+              function: main.handler
+
+# 需要安装的依赖
+install:
+  - npm install -g serverless
+  - npm install --production
+
+# 构建命令
+build:
+  - npm run build

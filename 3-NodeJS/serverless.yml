@@ -1,0 +1,51 @@
+service: nodejs-serverless-app
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-beijing
+  environment:
+    NODE_ENV: production
+    MONGODB_URI: ${ssm:/nodejs-app/mongodb-uri~true}
+
+functions:
+  api:
+    handler: dist/main.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+    noPrependStageInUrl: true
+  serverless-plugin-typescript:
+    tsConfigFile: tsconfig.json
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!.git/**'
+    - '!src/**'
+    - 'dist/**'
+    - 'node_modules/@nestjs/**'
+    - 'node_modules/@nestjs/mongoose/**'
+    - 'node_modules/mongoose/**'
+    - 'node_modules/class-validator/**'
+    - 'node_modules/class-transformer/**'
+    - 'node_modules/reflect-metadata/**'
+    - 'node_modules/rxjs/**'
+    - 'node_modules/@nestjs/common/**'
+    - 'node_modules/@nestjs/core/**'
+    - 'node_modules/@nestjs/platform-express/**'
+    - 'node_modules/@nestjs/swagger/**'
+    - 'node_modules/swagger-ui-express/**'
+    - 'node_modules/@nestjs/config/**'
+    - 'node_modules/@nestjs/mapped-types/**'
