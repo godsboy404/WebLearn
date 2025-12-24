@@ -35,7 +35,15 @@ export class BookController {
   @ApiResponse({ status: 201, description: '图书创建成功' })
   @ApiResponse({ status: 400, description: '请求数据无效' })
   async create(@Body() createBookDto: CreateBookDto) {
-    return this.bookService.create(createBookDto);
+    console.log('收到创建图书请求:', createBookDto);
+    try {
+      const result = await this.bookService.create(createBookDto);
+      console.log('图书创建成功:', result);
+      return result;
+    } catch (error) {
+      console.error('创建图书失败:', error);
+      throw error;
+    }
   }
 
   /**

@@ -64,9 +64,13 @@ export const bookService = {
   // 添加新图书
   async addBook(bookData) {
     try {
-      return await apiClient.post('/books', bookData)
+      console.log('发送添加图书请求:', bookData)
+      const response = await apiClient.post('/books', bookData)
+      console.log('添加图书响应:', response)
+      return response
     } catch (error) {
       console.error('添加图书失败:', error)
+      console.error('错误详情:', error.response)
       throw error
     }
   },

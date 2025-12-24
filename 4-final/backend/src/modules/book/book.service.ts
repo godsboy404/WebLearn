@@ -21,6 +21,8 @@ export class BookService {
    * @returns 创建的图书对象
    */
   async create(createBookDto: CreateBookDto): Promise<Book> {
+    console.log('BookService.create() 被调用，参数:', createBookDto);
+    
     // 验证日期逻辑
     if (createBookDto.startDate && createBookDto.finishDate) {
       const startDate = new Date(createBookDto.startDate);
@@ -31,8 +33,15 @@ export class BookService {
       }
     }
 
-    const newBook = new this.bookModel(createBookDto);
-    return newBook.save();
+    try {
+      const newBook = new this.bookModel(createBookDto);
+      const result = await newBook.save();
+      console.log('图书保存成功:', result);
+      return result;
+    } catch (error) {
+      console.error('保存图书到数据库失败:', error);
+      throw error;
+    }
   }
 
   /**

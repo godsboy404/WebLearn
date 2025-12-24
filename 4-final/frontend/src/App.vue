@@ -218,7 +218,9 @@ export default {
     
     // 编辑图书
     const editBook = (book) => {
-      editingBook.value = { ...book }
+      // 创建一个副本，移除MongoDB特有的字段
+      const { _id, createdAt, updatedAt, __v, ...bookCopy } = book
+      editingBook.value = { ...bookCopy, id: book._id || book.id }
     }
     
     // 删除图书
@@ -245,20 +247,29 @@ export default {
     // 保存图书
     const saveBook = async (bookData) => {
       try {
+        console.log('App.vue saveBook 被调用，bookData:', bookData)
         showLoading(editingBook.value ? '正在更新图书信息...' : '正在添加新书...')
         if (editingBook.value) {
           // 更新现有图书
-          const updatedBook = await bookService.updateBook(editingBook.value.id, bookData)
+          console.log('更新现有图书，ID:', editingBook.value.id)
+          // 移除可能的id字段，因为MongoDB使用_id
+          const { id, ...cleanBookData } = bookData
+          const updatedBook = await bookService.updateBook(editingBook.value.id, cleanBookData)
           const index = books.value.findIndex(book => book.id === editingBook.value.id)
           books.value[index] = updatedBook
         } else {
           // 添加新图书
-          const newBook = await bookService.addBook(bookData)
+          console.log('添加新图书')
+          // 移除可能的id字段
+          const { id, ...cleanBookData } = bookData
+          const newBook = await bookService.addBook(cleanBookData)
+          console.log('添加图书成功，返回:', newBook)
           books.value.push(newBook)
         }
         cancelForm()
       } catch (error) {
         console.error('保存图书失败:', error)
+        console.error('错误详细信息:', error.response)
         showErrorModal('保存图书失败，请检查输入信息并重试')
       } finally {
         hideLoading()

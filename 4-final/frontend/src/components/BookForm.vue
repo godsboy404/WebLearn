@@ -257,10 +257,11 @@ export default {
         ? tagsInput.value.split(',').map(tag => tag.trim()).filter(tag => tag)
         : []
       
-      // 准备提交的数据
+      // 准备提交的数据，确保rating是数字类型
       const bookData = {
         ...formData.value,
-        tags
+        tags,
+        rating: parseInt(formData.value.rating) || 0
       }
       
       emit('save', bookData)
