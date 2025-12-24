@@ -8,8 +8,6 @@
 2. **axios-test.js** - 使用axios的测试脚本，生成HTML报告（推荐）
 3. **api-test.http** - VS Code REST Client测试文件，可手动执行单个API测试
 4. **simple-test.sh** - 简单的bash脚本，使用curl命令测试API
-5. **run-tests.sh** - One-Tap Run
-6. **README.md**
 
 ## 快速开始
 
@@ -34,7 +32,6 @@ npm run test:axios
 cd backend/test
 ./simple-test.sh
 ```
-
 4. 测试完成后自动打开报告
 
 ### 法二：VS Code REST Client
@@ -78,56 +75,3 @@ cd backend/test
    - 获取不存在的图书ID
    - 创建缺少必填字段的图书
    - 创建评分超出范围的图书
-
-
-## 高级用法
-
-### 自定义测试用例
-
-修改`generate-test-report.js`中的测试用例：
-
-```javascript
-// 添加新的测试用例
-await testAPI('GET', '/custom-endpoint', {
-  customField: 'customValue'
-}, '自定义测试描述');
-```
-
-### 集成到CI/CD
-
-可以将测试集成到持续集成流程：
-
-```yaml
-# .github/workflows/api-test.yml
-name: API Test
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-      - run: npm install
-      - run: npm run start:dev &
-      - run: sleep 10
-      - run: npm run test:api
-      - uses: actions/upload-artifact@v2
-        with:
-          name: api-test-report
-          path: backend/test/api-test-report.html
-```
-
-### 性能测试
-
-可以修改测试脚本进行性能测试：
-
-```javascript
-// 添加并发测试
-const concurrentRequests = 100;
-const promises = Array(concurrentRequests).fill().map(() =>
-  testAPI('GET', '/books', null, '并发测试')
-);
-await Promise.all(promises);
-```
