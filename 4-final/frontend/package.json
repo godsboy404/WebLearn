@@ -1,0 +1,26 @@
+{
+  "name": "personal-book-management",
+  "version": "1.0.0",
+  "description": "个人图书管理系统",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "@vitejs/plugin-vue": "^4.4.0"
+  },
+  "keywords": [
+    "vue",
+    "book-management",
+    "personal-library"
+  ],
+  "author": "Web Developer",
+  "license": "MIT"
+}
