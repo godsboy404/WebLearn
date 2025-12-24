@@ -1,0 +1,169 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 动画效果 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮动画效果 */
+.btn {
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* 模态框动画 */
+.modal-enter-active, .modal-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.modal-enter-from, .modal-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* 表单输入框焦点效果 */
+.form-input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 加载动画 */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 空状态样式 */
+.empty-state {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #718096;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #edf2f7;
+  color: #4a5568;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.tag-blue {
+  background-color: #e6f6ff;
+  color: #0066cc;
+}
+
+/* 评分星星样式 */
+.rating-star {
+  color: #fbbf24;
+  font-size: 1rem;
+}
+
+.rating-star-empty {
+  color: #d1d5db;
+  font-size: 1rem;
+}
+
+/* 状态标签样式 */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+}
+
+.status-unread {
+  background-color: #6b7280;
+}
+
+.status-reading {
+  background-color: #f59e0b;
+}
+
+.status-read {
+  background-color: #10b981;
+}
