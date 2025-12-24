@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { UserModule } from './modules/user/user.module';
-import { ProductModule } from './modules/product/product.module';
 import { BookModule } from './modules/book/book.module';
-import { InitModule } from './modules/init/init.module';
 import { AppController } from './app.controller';
 
 /**
@@ -20,17 +17,11 @@ import { AppController } from './app.controller';
     }),
     
     // MongoDB 数据库连接配置
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/nodejs-experiment'),
+    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/book-management'),
     
     // 业务模块
-    UserModule,
-    ProductModule,
     BookModule,
-    
-    // 初始化模块
-    InitModule,
   ],
   controllers: [AppController],
-  providers: [],
 })
 export class AppModule {}
