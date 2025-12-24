@@ -1,0 +1,77 @@
+### 图书管理系统 API 测试文件
+### 使用方法：在 VS Code 中安装 REST Client 扩展，然后点击 "Send Request" 按钮
+
+### 1. 获取所有图书
+GET http://localhost:3000/api/books
+
+###
+
+### 2. 创建新图书
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+  "title": "测试图书",
+  "author": "测试作者",
+  "isbn": "978-7-111-11111-1",
+  "publisher": "测试出版社",
+  "publishDate": "2023-01-01",
+  "category": "fiction",
+  "tags": ["测试", "API"],
+  "status": "unread",
+  "rating": 3,
+  "notes": "这是通过API测试创建的图书",
+  "startDate": "",
+  "finishDate": "",
+  "coverImage": "https://example.com/book-cover.jpg"
+}
+
+###
+
+### 3. 获取单本图书 (需要先创建图书获取ID)
+GET http://localhost:3000/api/books/BOOK_ID_HERE
+
+###
+
+### 4. 更新图书 (需要先创建图书获取ID)
+PATCH http://localhost:3000/api/books/BOOK_ID_HERE
+Content-Type: application/json
+
+{
+  "title": "更新后的图书标题",
+  "author": "更新后的作者",
+  "rating": 5,
+  "notes": "这是通过API测试更新的图书"
+}
+
+###
+
+### 5. 搜索图书
+GET http://localhost:3000/api/books/search/测试
+
+###
+
+### 6. 按分类获取图书
+GET http://localhost:3000/api/books/category/fiction
+
+###
+
+### 7. 按状态获取图书
+GET http://localhost:3000/api/books/status/read
+
+###
+
+### 8. 按评分范围获取图书
+GET http://localhost:3000/api/books/rating-range?minRating=3&maxRating=5
+
+###
+
+### 9. 获取统计信息
+GET http://localhost:3000/api/books/statistics/summary
+
+###
+
+### 10. 删除图书 (需要先创建图书获取ID)
+DELETE http://localhost:3000/api/books/BOOK_ID_HERE
+
+###

@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书管理系统API测试报告</title>
+  
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .summary-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 150px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .success {
+    border-left: 4px solid #28a745;
+  }
+  .error {
+    border-left: 4px solid #dc3545;
+  }
+  .info {
+    border-left: 4px solid #17a2b8;
+  }
+  .test-case {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .test-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .test-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+  }
+  .status-pass {
+    background-color: #28a745;
+  }
+  .status-fail {
+    background-color: #dc3545;
+  }
+  .status-info {
+    background-color: #17a2b8;
+  }
+  .test-details {
+    margin-top: 15px;
+  }
+  .request, .response {
+    margin-bottom: 15px;
+  }
+  .code-block {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    font-size: 14px;
+  }
+  .error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #666;
+    font-size: 14px;
+  }
+  .chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+</head>
+<body>
+  <div class="header">
+    <h1>图书管理系统API测试报告</h1>
+    <p>生成时间: 12/24/2025, 12:04:31 PM</p>
+  </div>
+  
+  <div class="summary">
+    <div class="summary-item">
+      <h3>总测试数</h3>
+      <p style="font-size: 24px; font-weight: bold;">13</p>
+    </div>
+    <div class="summary-item">
+      <h3>通过数</h3>
+      <p style="font-size: 24px; font-weight: bold; color: #28a745;">9</p>
+    </div>
+    <div class="summary-item">
+      <h3>失败数</h3>
+      <p style="font-size: 24px; font-weight: bold; color: #dc3545;">4</p>
+    </div>
+    <div class="summary-item">
+      <h3>成功率</h3>
+      <p style="font-size: 24px; font-weight: bold;">69.2%</p>
+    </div>
+  </div>
+  
+  <div class="chart-container">
+    <h2>测试结果分布</h2>
+    <div style="display: flex; height: 200px; align-items: flex-end;">
+      <div style="background-color: #28a745; width: 69.2%; height: 100%; border-radius: 4px 0 0 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        69.2%
+      </div>
+      <div style="background-color: #dc3545; width: 30.799999999999997%; height: 100%; border-radius: 0 4px 4px 0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        30.799999999999997%
+      </div>
+    </div>
+  </div>
+  
+  <h2>详细测试结果</h2>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">获取所有图书列表</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 36ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">[{"_id":"694b5ab7986e6cfe64d295ed","title":"情爱现象学","author":"Jean-Luc Marion","isbn":"9787100091756","publisher":"商务印书馆","publishDate":"2014-07-01T00:00:00.000Z","category":"non-fiction","tags":["爱情，哲学，人生，沉思"],"status":"reading","rating":4,"notes":"为什么哲学不再讨论爱？ \n马利翁这本优美的散文大概由六个问题串起来，基本上分别对应六组“沉思”。","startDate":"2025-12-20T00:00:00.000Z","finishDate":"2026-02-20T00:00:00.000Z","coverImage":"","createdAt":"2025-12-24T03:15:03.226Z","updatedAt":"2025-12-24T03:16:17.667Z","__v":0},{"_id":"69420c575a97a753c3c81981","title":"JavaScript高级程序设计","author":"Nicholas C. Zakas","isbn":"978-7-115-27579-0","publisher":"人民邮电出版社","category":"technical","tags":[],"status":"read","rating":4,"createdAt":"2025-12-17T01:50:15.780Z","updatedAt":"2025-12-24T03:12:53.979Z","__v":0}]</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">创建新图书</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> POST | <strong>URL:</strong> /books</p>
+        <p><strong>状态码:</strong> 201 | <strong>耗时:</strong> 26ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">{
+  "title": "API测试图书",
+  "author": "测试作者",
+  "isbn": "978-7-111-11111-1",
+  "publisher": "测试出版社",
+  "publishDate": "2023-01-01",
+  "category": "fiction",
+  "tags": [
+    "测试",
+    "API"
+  ],
+  "status": "unread",
+  "rating": 3,
+  "notes": "这是通过API测试创建的图书"
+}</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"title":"API测试图书","author":"测试作者","isbn":"978-7-111-11111-1","publisher":"测试出版社","publishDate":"2023-01-01T00:00:00.000Z","category":"fiction","tags":["测试","API"],"status":"unread","rating":3,"notes":"这是通过API测试创建的图书","_id":"694b664f4af10731e70e6762","createdAt":"2025-12-24T04:04:31.193Z","updatedAt":"2025-12-24T04:04:31.193Z","__v":0}</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">获取单本图书详情</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/694b664f4af10731e70e6762</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 4ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"_id":"694b664f4af10731e70e6762","title":"API测试图书","author":"测试作者","isbn":"978-7-111-11111-1","publisher":"测试出版社","publishDate":"2023-01-01T00:00:00.000Z","category":"fiction","tags":["测试","API"],"status":"unread","rating":3,"notes":"这是通过API测试创建的图书","createdAt":"2025-12-24T04:04:31.193Z","updatedAt":"2025-12-24T04:04:31.193Z","__v":0}</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">更新图书信息</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> PATCH | <strong>URL:</strong> /books/694b664f4af10731e70e6762</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 6ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">{
+  "title": "更新后的图书标题",
+  "rating": 5,
+  "notes": "这是通过API测试更新的图书"
+}</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"_id":"694b664f4af10731e70e6762","title":"更新后的图书标题","author":"测试作者","isbn":"978-7-111-11111-1","publisher":"测试出版社","publishDate":"2023-01-01T00:00:00.000Z","category":"fiction","tags":["测试","API"],"status":"unread","rating":5,"notes":"这是通过API测试更新的图书","createdAt":"2025-12-24T04:04:31.193Z","updatedAt":"2025-12-24T04:04:31.204Z","__v":0}</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">删除图书</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> DELETE | <strong>URL:</strong> /books/694b664f4af10731e70e6762</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 3ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"message":"图书删除成功"}</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">搜索图书</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/search/JavaScript</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 10ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">[{"_id":"69420c575a97a753c3c81981","title":"JavaScript高级程序设计","author":"Nicholas C. Zakas","isbn":"978-7-115-27579-0","publisher":"人民邮电出版社","category":"technical","tags":[],"status":"read","rating":4,"createdAt":"2025-12-17T01:50:15.780Z","updatedAt":"2025-12-24T03:12:53.979Z","__v":0}]</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">按分类获取图书</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/category/fiction</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 1ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">[]</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">按阅读状态获取图书</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/status/read</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 2ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">[{"_id":"69420c575a97a753c3c81981","title":"JavaScript高级程序设计","author":"Nicholas C. Zakas","isbn":"978-7-115-27579-0","publisher":"人民邮电出版社","category":"technical","tags":[],"status":"read","rating":4,"createdAt":"2025-12-17T01:50:15.780Z","updatedAt":"2025-12-24T03:12:53.979Z","__v":0}]</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case error">
+      <div class="test-header">
+        <div class="test-title">按评分范围获取图书</div>
+        <div class="test-status status-fail">FAIL</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/rating-range?minRating=3&maxRating=5</p>
+        <p><strong>状态码:</strong> 500 | <strong>耗时:</strong> 1ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"statusCode":500,"message":"Internal server error"}</div>
+        </div>
+        
+        <div class="error-message"><strong>错误信息:</strong> HTTP 500</div>
+      </div>
+    </div>
+  
+    <div class="test-case success">
+      <div class="test-header">
+        <div class="test-title">获取统计信息</div>
+        <div class="test-status status-pass">PASS</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/statistics/summary</p>
+        <p><strong>状态码:</strong> 200 | <strong>耗时:</strong> 28ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"total":2,"read":1,"reading":1,"unread":0,"averageRating":4}</div>
+        </div>
+        
+        
+      </div>
+    </div>
+  
+    <div class="test-case error">
+      <div class="test-header">
+        <div class="test-title">测试获取不存在的图书</div>
+        <div class="test-status status-fail">FAIL</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> GET | <strong>URL:</strong> /books/invalid-id</p>
+        <p><strong>状态码:</strong> 500 | <strong>耗时:</strong> 1ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">None</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"statusCode":500,"message":"Internal server error"}</div>
+        </div>
+        
+        <div class="error-message"><strong>错误信息:</strong> HTTP 500</div>
+      </div>
+    </div>
+  
+    <div class="test-case error">
+      <div class="test-header">
+        <div class="test-title">测试创建缺少必填字段的图书</div>
+        <div class="test-status status-fail">FAIL</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> POST | <strong>URL:</strong> /books</p>
+        <p><strong>状态码:</strong> 400 | <strong>耗时:</strong> 3ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">{
+  "author": "只有作者的图书"
+}</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"message":["图书标题不能超过200个字符","图书标题不能为空","图书标题必须是字符串"],"error":"Bad Request","statusCode":400}</div>
+        </div>
+        
+        <div class="error-message"><strong>错误信息:</strong> HTTP 400</div>
+      </div>
+    </div>
+  
+    <div class="test-case error">
+      <div class="test-header">
+        <div class="test-title">测试创建评分超出范围的图书</div>
+        <div class="test-status status-fail">FAIL</div>
+      </div>
+      <div class="test-details">
+        <p><strong>方法:</strong> POST | <strong>URL:</strong> /books</p>
+        <p><strong>状态码:</strong> 400 | <strong>耗时:</strong> 4ms</p>
+        
+        <div class="request">
+          <h4>请求数据:</h4>
+          <div class="code-block">{
+  "title": "测试图书",
+  "author": "测试作者",
+  "rating": 10
+}</div>
+        </div>
+        
+        <div class="response">
+          <h4>响应数据:</h4>
+          <div class="code-block">{"message":["评分不能大于5"],"error":"Bad Request","statusCode":400}</div>
+        </div>
+        
+        <div class="error-message"><strong>错误信息:</strong> HTTP 400</div>
+      </div>
+    </div>
+  
+  
+  <div class="footer">
+    <p>报告由图书管理系统API测试工具自动生成</p>
+  </div>
+</body>
+</html>
